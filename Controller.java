@@ -17,7 +17,6 @@ public class Controller extends MouseAdapter implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println(e.getActionCommand());
 		if (e.getActionCommand().equals("Add Level.")) {
 			model.addLevel();
 		}

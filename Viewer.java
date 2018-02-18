@@ -40,6 +40,6 @@ public class Viewer extends JPanel implements View {
 				Shape s = iter.next();
 				s.draw(g);
 			}
-		}
+		}update(model);
 	}
 }

@@ -44,13 +44,16 @@ public class MainClass {
 		view.add(addLevel);
 		view.add(removeLevel);
 		view.add(reset);
+		TextViewer textView = new TextViewer(model);
+		textView.display();
 		
 		model.addView(view);
+		model.addView(textView);
 		frame.add(view);
 		frame.setSize(800, 600);// Dimensions of frame
 		frame.setBackground(Color.WHITE);// Sets background color
 		
-		model.notifyViews();
+		//model.notifyViews();
 		
 		frame.setVisible(true); // Put at bottom to make frame visible
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// End condition
