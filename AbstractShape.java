@@ -14,7 +14,7 @@ public abstract class AbstractShape implements Shape {
 	protected int quadrant; // Quadrant for Fibonacci Square shape, must be here for FibonacciSquare
 							// constructor to work
 	protected Color c; // Color of shape
-	protected int n = 0;
+	protected int n = 1;
 	protected Shape[] array;
 
 	/**
@@ -65,8 +65,10 @@ public abstract class AbstractShape implements Shape {
 					array[i] = null;
 				}
 			} else {
-				array[0].removeLevel();
-				createChildren();
+				for (int i = 0; i < array.length; i++) {
+					array[i].removeLevel();
+					}
+				//createChildren();
 			}
 		} catch (ArrayIndexOutOfBoundsException e) {
 			JOptionPane.showMessageDialog(null, "Cannot remove level", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -80,11 +82,9 @@ public abstract class AbstractShape implements Shape {
 	@Override
 	public void resetLevel() {
 		try {
-		if (array[0].getChildren()[0]==null) {
-			for (int i = 0; i <array.length; i++) {
+			for (int i = 0; i < array.length; i++) {
 				array[i] = null;
-			}
-		}
+				}
 		} catch (NullPointerException e) {
 			return;
 		}

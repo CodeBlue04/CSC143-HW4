@@ -14,9 +14,11 @@ import javax.swing.JOptionPane;
  *
  */
 public class DrawingModel {
-	private ArrayList<Shape> shapes = new ArrayList<Shape>();
-	private ArrayList<View> views = new ArrayList<View>();
-	protected int level = 3;
+	protected ArrayList<Shape> shapes = new ArrayList<Shape>();
+	protected ArrayList<View> views = new ArrayList<View>();
+	
+	
+	
 	/**
 	 * Instantiates two shapes
 	 */
@@ -28,13 +30,10 @@ public class DrawingModel {
 	}
 
 	public void drawModel() {
-		addShape(new HShape(100, 200, 100, Color.BLUE));
+
+		addShape(new HShape(100, 200, 99, Color.BLUE));
 		addShape(new FibonacciSquare(500, 200, 3, Color.RED, 0));
 	}
-
-
-
-
 
 	/**
 	 * This method allows the user to add a shape to the frame.
@@ -62,7 +61,6 @@ public class DrawingModel {
 	public void addView(View v) {
 		views.add(v);
 		v.update(this);
-		notifyViews();
 	}
 
 	public void addLevel() {
