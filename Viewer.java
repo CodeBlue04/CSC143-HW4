@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -23,11 +25,13 @@ public class Viewer extends JPanel implements View {
 	@Override
 	public void update(DrawingModel model) {
 		this.model = model;
+
 		repaint();
 	}
 
 	/**
-	 * This method iterates through each shape in the ArrayList of shapes and draws them.
+	 * This method iterates through each shape in the ArrayList of shapes and draws
+	 * them.
 	 */
 	@Override
 	public void paintComponent(Graphics g) { // paints all components in the Arraylist of shapes

@@ -1,11 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.SwingUtilities;
 
 public class Controller extends MouseAdapter implements ActionListener {
 

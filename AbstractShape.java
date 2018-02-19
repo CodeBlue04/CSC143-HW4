@@ -71,9 +71,8 @@ public abstract class AbstractShape implements Shape {
 					array[i] = null;
 				}
 			} else {
-				for (int i = 0; i < array.length; i++) {
-					array[i].removeLevel();
-				}
+				array[0].removeLevel();
+				createChildren();
 			}
 		} catch (ArrayIndexOutOfBoundsException e) {
 			JOptionPane.showMessageDialog(null, "Cannot remove level", "Information", JOptionPane.INFORMATION_MESSAGE);

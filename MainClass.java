@@ -47,6 +47,7 @@ public class MainClass {
 		TextViewer textView = new TextViewer(model);
 		textView.display();
 		
+		
 		model.addView(view);
 		model.addView(textView);
 		frame.add(view);
