@@ -24,6 +24,9 @@ public class HShape extends AbstractShape {
 		this.array = new HShape[7];
 	}
 
+	/**
+	 * This method nests H Shapes inside of each of the 7 branches of the outer H shape.  
+	 */
 	public boolean createChildren() {
 		if (size > 10) {
 			for (int i = 0; i < array.length; i++) {

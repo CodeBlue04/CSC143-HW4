@@ -18,7 +18,7 @@ public class Viewer extends JPanel implements View {
 	DrawingModel model;
 
 	/**
-	 * Update method used to repaint shape in question.
+	 * This method updates the model and repaints it.
 	 */
 	@Override
 	public void update(DrawingModel model) {
@@ -27,7 +27,7 @@ public class Viewer extends JPanel implements View {
 	}
 
 	/**
-	 * This method goes through the ArrayList of shapes and draws them all.
+	 * This method iterates through each shape in the ArrayList of shapes and draws them.
 	 */
 	@Override
 	public void paintComponent(Graphics g) { // paints all components in the Arraylist of shapes

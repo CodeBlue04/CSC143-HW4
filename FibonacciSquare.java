@@ -9,7 +9,7 @@ import java.util.Random;
  *
  */
 public class FibonacciSquare extends AbstractShape {
-	static int n = 0;
+	static int n = 0; //MUST BE STATIC or else everything falls apart.
 	private int quadrant;
 	
 
