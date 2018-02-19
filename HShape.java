@@ -27,33 +27,33 @@ public class HShape extends AbstractShape {
 	public boolean createChildren() {
 		if (size > 10) {
 			for (int i = 0; i < array.length; i++) {
+				int childSize = size / 3;
 				if (i == 0) {
-					array[0] = new HShape(x, y, size / 3, c);
+					array[0] = new HShape(x+ childSize, y+childSize, childSize, c);
 				}
 				if (i == 1) {
-					array[1] = new HShape(x - size, y, size / 3, c);
+					array[1] = new HShape(x - size + childSize, y + childSize, childSize, c);
 				}
 				if (i == 2) {
-					array[2] = new HShape(x - size, y - size, size / 3, c);
+					array[2] = new HShape(x - size + childSize, y - size + childSize, childSize, c);
 				}
 				if (i == 3) {
-					array[3] = new HShape(x - size, y + size, size / 3, c);
+					array[3] = new HShape(x - size + childSize, y + size + childSize, childSize, c);
 				}
 				if (i == 4) {
-					array[4] = new HShape(x + size, y + size, size / 3, c);
+					array[4] = new HShape(x + size + childSize, y + size + childSize, childSize, c);
 				}
 				if (i == 5) {
-					array[5] = new HShape(x + size, y - size, size / 3, c);
+					array[5] = new HShape(x + size + childSize, y - size+ childSize, childSize, c);
 				}
 				if (i == 6) {
-					array[6] = new HShape(x + size, y, size / 3, c);
-				} else {
-					array[i] = new HShape(x, y, size / 3, c);
+					array[6] = new HShape(x + size + childSize, y + childSize, childSize, c);
 				}
 			}
 			return true;
 		} else {
 			return false;
+
 		}
 	}
 
@@ -75,10 +75,10 @@ public class HShape extends AbstractShape {
 			g.fillRect(x + size, y + size, size, size);
 			g.fillRect(x + size, y - size, size, size);
 			g.setColor(Color.WHITE);
-			g.fillRect(x, y+size, size, size);
-			g.fillRect(x, y-size, size, size);
+			g.fillRect(x, y + size, size, size);
+			g.fillRect(x, y - size, size, size);
 		} else {
-			for (int i = 0; i<array.length;i++) {
+			for (int i = 0; i < array.length; i++) {
 				array[i].draw(g);
 			}
 		}

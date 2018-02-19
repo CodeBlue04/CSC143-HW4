@@ -9,8 +9,9 @@ import java.util.Random;
  *
  */
 public class FibonacciSquare extends AbstractShape {
-	private int n = 3, quadrant;
-
+	static int n = 0;
+	private int quadrant;
+	
 
 	/**
 	 * Constructor for Fibonacci Square shape
@@ -25,7 +26,6 @@ public class FibonacciSquare extends AbstractShape {
 		this.n = n;
 		this.quadrant = quadrant;
 		array = new Shape[1];
-
 	}
 
 	/**
@@ -37,16 +37,17 @@ public class FibonacciSquare extends AbstractShape {
 	public static int fibNum(int n) {
 		if (n <= 1) {
 			return n;
-		} else {
+			}
 			return fibNum(n - 1) + fibNum(n - 2);
-		}
 	}
 
+	/**
+	 * This method builds consecutively larger Fibonacci Square objects by using the fibNum method to modulate size.
+	 */
 	@Override
 	public boolean createChildren() {
-		n++;
-		if (n < 15) {
-			array[0] = new FibonacciSquare(x, y, (n +1), c, ((this.quadrant%4)+1));
+		if (n < 10) {
+			array[0] = new FibonacciSquare(x, y, n, c, ((this.quadrant%4)+1));
 			return true;
 		} else {
 			return false;
@@ -60,7 +61,7 @@ public class FibonacciSquare extends AbstractShape {
 	public void draw(Graphics g) {
 		g.setColor(this.c);
 		quadrant = this.quadrant + 1;
-		int newSize = size*30;
+		int newSize = n*30;
 		switch (quadrant) {
 		// Quadrant 1
 		case 1:
@@ -72,12 +73,14 @@ public class FibonacciSquare extends AbstractShape {
 		case 2:
 			g.drawRect(x- newSize, y, newSize, newSize);
 			g.drawArc(x-newSize, y, 2 * newSize, 2 * newSize, 90, 90);
+			n++;
 			break;
 
 		// Quadrant 3
 		case 3:
-			g.drawRect(x-newSize, y+newSize , newSize, newSize);
-			g.drawArc(x- newSize, y , 2 * newSize, 2 * newSize, 180, 90);
+			g.drawRect(x-newSize/2, y+newSize/2 , newSize, newSize);
+			g.drawArc(x- newSize/2, y-newSize/2 , 2 * newSize, 2 * newSize, 180, 90);
+			n++;
 			break;
 
 		// Quadrant 4

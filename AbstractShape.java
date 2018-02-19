@@ -14,8 +14,8 @@ public abstract class AbstractShape implements Shape {
 	protected int quadrant; // Quadrant for Fibonacci Square shape, must be here for FibonacciSquare
 							// constructor to work
 	protected Color c; // Color of shape
-	protected int n = 0;
 	protected Shape[] array;
+	protected int n = 0;
 
 	/**
 	 * Constructor for all shapes.
@@ -32,7 +32,6 @@ public abstract class AbstractShape implements Shape {
 	}
 
 	public boolean addLevel() {
-		n++;
 		try {
 			if (array[0] != null) {
 				boolean recur = true;
@@ -54,10 +53,9 @@ public abstract class AbstractShape implements Shape {
 	
 	@Override
 	public boolean removeLevel() {
-		n--;
 		try {
 			if (array[0] == null) {
-				JOptionPane.showMessageDialog(null, "Cannot remove level AS RL", "Information",
+				JOptionPane.showMessageDialog(null, "Cannot remove level.", "Information",
 						JOptionPane.INFORMATION_MESSAGE);
 				return false;
 			} else if (array[0].getChildren()[0] == null) {
@@ -65,8 +63,9 @@ public abstract class AbstractShape implements Shape {
 					array[i] = null;
 				}
 			} else {
-				array[0].removeLevel();
-				createChildren();
+				for (int i = 0; i < array.length; i++) {
+					array[i].removeLevel();
+					}createChildren();
 			}
 		} catch (ArrayIndexOutOfBoundsException e) {
 			JOptionPane.showMessageDialog(null, "Cannot remove level", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -80,11 +79,9 @@ public abstract class AbstractShape implements Shape {
 	@Override
 	public void resetLevel() {
 		try {
-		if (array[0].getChildren()[0]==null) {
-			for (int i = 0; i <array.length; i++) {
+			for (int i = 0; i < array.length; i++) {
 				array[i] = null;
-			}
-		}
+				}
 		} catch (NullPointerException e) {
 			return;
 		}
@@ -92,7 +89,7 @@ public abstract class AbstractShape implements Shape {
 
 	@Override
 	public String toString() {
-		return String.format("Coordinates: (%d, %d), Color = %s", x, y, c);
+		return String.format("Shape: %s, Coordinates: (%d, %d), Color = %s", this.getClass().getSimpleName(), x, y, c);
 	}
 
 	public int getX() {
@@ -105,14 +102,6 @@ public abstract class AbstractShape implements Shape {
 
 	public int getSize() {
 		return size;
-	}
-
-	public int getQuadrant() {
-		if (this instanceof FibonacciSquare) {
-			return this.quadrant;
-		} else {
-			return 0;
-		}
 	}
 
 	public Color getColor() {

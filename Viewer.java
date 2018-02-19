@@ -20,8 +20,9 @@ public class Viewer extends JPanel implements View {
 	/**
 	 * Update method used to repaint shape in question.
 	 */
+	@Override
 	public void update(DrawingModel model) {
-		this.model = model; // repaints this DrawingModel object
+		this.model = model;
 		repaint();
 	}
 
@@ -30,14 +31,13 @@ public class Viewer extends JPanel implements View {
 	 */
 	@Override
 	public void paintComponent(Graphics g) { // paints all components in the Arraylist of shapes
+		g.clearRect(0, 0, getWidth() / 2, getHeight());
 		super.paintComponents(g);
-		if (model != null) {
-			ArrayList<Shape> shapes = model.getShapes();
-			Iterator<Shape> iter = shapes.iterator();
-			while (iter.hasNext()) {
-				Shape s = iter.next();
-				s.draw(g);
-			}
+		ArrayList<Shape> shapes = model.getShapes();
+		Iterator<Shape> iter = shapes.iterator();
+		while (iter.hasNext()) {
+			Shape s = iter.next();
+			s.draw(g);
 		}
 	}
 }

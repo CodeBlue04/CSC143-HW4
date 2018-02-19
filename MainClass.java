@@ -1,5 +1,6 @@
 import java.awt.Color;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JRadioButton;
 
@@ -33,7 +34,7 @@ public class MainClass {
 		removeLevel.setActionCommand("Remove Level.");
 		removeLevel.setBounds(400,50,100,30);
 		
-		JRadioButton reset = new JRadioButton("Reset", false);
+		JButton reset = new JButton("Reset");
 		reset.setActionCommand("Reset");
 		reset.setBounds(600,50,100,30);
 			
@@ -43,13 +44,16 @@ public class MainClass {
 		view.add(addLevel);
 		view.add(removeLevel);
 		view.add(reset);
+		TextViewer textView = new TextViewer(model);
+		textView.display();
 		
 		model.addView(view);
+		model.addView(textView);
 		frame.add(view);
 		frame.setSize(800, 600);// Dimensions of frame
 		frame.setBackground(Color.WHITE);// Sets background color
 		
-		model.notifyViews();
+		//model.notifyViews();
 		
 		frame.setVisible(true); // Put at bottom to make frame visible
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// End condition
